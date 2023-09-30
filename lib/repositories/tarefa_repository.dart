@@ -8,13 +8,26 @@ class TarefaRepository {
     _tarefas.add(tarefa);
   }
 
-  Future<List<Tarefa>> listarTarefas() async{
+  Future<List<Tarefa>> listarTarefas() async {
     await Future.delayed(const Duration(seconds: 1));
     return _tarefas;
   }
 
-  void alterar(String id, bool concluida) async {
+  Future<List<Tarefa>> listarTarefasNaoConcluidas() async {
     await Future.delayed(const Duration(seconds: 1));
-    _tarefas.where((element) => element.getId() == id).first.setConcluida(concluida);
+    return _tarefas.where((element) => !element.getConcluida()).toList();
+  }
+
+  Future<void> alterar(String id, bool concluida) async {
+    await Future.delayed(const Duration(seconds: 1));
+    _tarefas
+        .where((element) => element.getId() == id)
+        .first
+        .setConcluida(concluida);
+  }
+
+  Future<void> remover(String id) async {
+    await Future.delayed(const Duration(seconds: 1));
+    _tarefas.remove(_tarefas.where((element) => element.getId() == id).first);
   }
 }
