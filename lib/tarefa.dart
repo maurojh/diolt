@@ -7,23 +7,33 @@ class Tarefa {
 
   Tarefa(this._tarefa, this._concluida);
 
-  String getId() {
-    return _id;
-  }
+  String get id => _id;
+  
+  // String getId() {
+  //   return _id;
+  // }
 
-  void setTarefa(String tarefa) {
+  set tarefa(String tarefa) {
     _tarefa = tarefa;
   }
 
-  String getTarefa() {
-    return _tarefa;
-  }
+  String get tarefa => _tarefa;
 
-  void setConcluida(bool concluida) {
+  // String getTarefa() {
+  //   return _tarefa;
+  // }
+
+  set concluida(bool concluida) {
     _concluida = concluida;
   }
 
-  bool getConcluida() {
-    return _concluida;
-  }
+  // void setConcluida(bool concluida) {
+  //   _concluida = concluida;
+  // }
+
+  bool get concluida => _concluida;
+
+  // bool getConcluida() {
+  //   return _concluida;
+  // }
 }

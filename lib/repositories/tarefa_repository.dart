@@ -15,19 +15,18 @@ class TarefaRepository {
 
   Future<List<Tarefa>> listarTarefasNaoConcluidas() async {
     await Future.delayed(const Duration(seconds: 1));
-    return _tarefas.where((element) => !element.getConcluida()).toList();
+    return _tarefas.where((element) => !element.concluida).toList();
   }
 
   Future<void> alterar(String id, bool concluida) async {
     await Future.delayed(const Duration(seconds: 1));
     _tarefas
-        .where((element) => element.getId() == id)
-        .first
-        .setConcluida(concluida);
+        .where((element) => element.id == id)
+        .first.concluida = concluida;
   }
 
   Future<void> remover(String id) async {
     await Future.delayed(const Duration(seconds: 1));
-    _tarefas.remove(_tarefas.where((element) => element.getId() == id).first);
+    _tarefas.remove(_tarefas.where((element) => element.id == id).first);
   }
 }

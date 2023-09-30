@@ -94,16 +94,16 @@ class _TarefaPageState extends State<TarefaPage> {
                 itemBuilder: (BuildContext bc, int index) {
                   var tarefaAtual = _tarefas[index];
                 return Dismissible(
-                  key: Key(tarefaAtual.getId()),
+                  key: Key(tarefaAtual.id),
                   onDismissed: (DismissDirection dd) async {
-                    await tarefaRepository.remover(tarefaAtual.getId());
+                    await tarefaRepository.remover(tarefaAtual.id);
                     obterTarefas();
                   },
                   child: ListTile(
-                    title: Text(tarefaAtual.getTarefa()),
-                    trailing: Switch(value: tarefaAtual.getConcluida(), onChanged: 
+                    title: Text(tarefaAtual.tarefa),
+                    trailing: Switch(value: tarefaAtual.concluida, onChanged: 
                     (bool value) async {
-                      await tarefaRepository.alterar(tarefaAtual.getId(), value);
+                      await tarefaRepository.alterar(tarefaAtual.id, value);
                       setState(() {
                         
                       });
